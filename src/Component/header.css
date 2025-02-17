@@ -1,0 +1,74 @@
+
+#header-h1{
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 40px;
+}
+
+/* Header container styling */
+#header-main {
+    display: flex;
+    justify-content: space-between; /* Spreads out the items across the header */
+    align-items: center; /* Vertically centers the items */
+    padding: 20px 50px; /* Adds padding around the header */
+    background-color: #333; /* Dark background */
+    color: white; /* White text color */
+    font-family: 'Arial', sans-serif; /* Set a simple font */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Styling for the header title */
+#header-h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0; /* Removes default margin */
+    letter-spacing: 1px; /* Adds a little spacing between the letters */
+    color: #FFD700; /* Gold color for the title */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Hover effect for the header title */
+#header-h1:hover {
+    color: #FF6347; /* Change color to Tomato on hover */
+}
+
+/* Styling for the menu items (Login, About Us, Cart) */
+.coll-1 {
+    margin: 0 20px; /* Adds spacing between the menu items */
+}
+
+/* Styling for links (Login, About Us, Cart) */
+.header-h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+    text-decoration: none; /* Removes underline */
+    color: white; /* White text for menu items */
+    text-transform: uppercase; /* Makes the text uppercase */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scaling */
+}
+
+/* Hover effect for menu items */
+.header-h2:hover {
+    color: #FFD700; /* Gold color when hovering over the items */
+    transform: scale(1.1); /* Slightly increases the size of the item */
+}
+
+/* Styling for the container of the header items (logo, links) */
+.coll {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive design: Stack the header items on smaller screens */
+@media (max-width: 768px) {
+    #header-main {
+        flex-direction: column; /* Stack items vertically on small screens */
+        text-align: center; /* Center-align text */
+    }
+
+    .coll-1 {
+        margin: 10px 0; /* Adds vertical space between links on mobile */
+    }
+}

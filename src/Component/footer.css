@@ -1,0 +1,65 @@
+/* Overall footer container */
+#footer-main {
+    display: flex;
+    justify-content: space-between; /* Space out the columns */
+    align-items: flex-start; /* Align items to the top */
+    background-color: #333; /* Dark background to contrast with light text */
+    color: white; /* White text color */
+    padding: 40px 50px; /* Padding for spacing */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow above the footer */
+}
+
+/* Styling for the first column (Logo and text) */
+.footer-col1 {
+    flex: 1;
+    max-width: 300px;
+}
+
+.footer-h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;}
+
+.footer-col1 p {
+    font-size: 14px;
+    color: #bbb; /* Lighter gray text for description */
+}
+
+/* Styling for the second column (Contact Info) */
+.footer-col2 {
+    flex: 1;
+}
+
+.list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.list li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #bbb; /* Lighter gray text */
+}
+
+.list li b {
+    font-weight: bold;
+    color: white; 
+}
+
+@media (max-width: 768px) {
+    #footer-main {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        padding: 20px; 
+    }
+
+    .footer-col1, .footer-col2 {
+        max-width: 100%; 
+        margin-bottom: 20px; 
+    }
+}

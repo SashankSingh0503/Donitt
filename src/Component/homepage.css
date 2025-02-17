@@ -1,0 +1,62 @@
+#main-div {
+    font-family: Arial, sans-serif;
+    background-color: #d9f2e6;
+}
+
+#section-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 5px; 
+    padding: 20px;
+    justify-items: center; 
+    align-items: center; 
+}
+
+.section-inside-div {
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+    height: 650px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-inside-div img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    opacity: 10;
+    animation: fadeIn 6s ease forwards; /* Fade-in effect */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
+
+.section-inside-div:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.15); /* Increases shadow on hover */
+}
+
+.section-inside-div img:hover {
+    transform: scale(1.05); 
+    transition: transform 0.3s ease;
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    #section-div {
+        grid-template-columns: 1fr; /* Stack images in a single column */
+    }
+
+    .section-inside-div {
+        height: 200px; /* Adjust height on smaller screens */
+    }
+}
