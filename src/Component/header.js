@@ -7,13 +7,16 @@ function Header(){
                 <h1 id="header-h1">Donitt</h1>
             </div>
             <div className='coll-1'>
-                <a href="login"><h2 className="header-h2">Login</h2></a>
+                <a href="/"><h2 className="header-h2">Login</h2></a>
             </div>
             <div className='coll-1'>
-                <a href="about"><h2 className="header-h2">About Us</h2></a>
+                <a href="/about"><h2 className="header-h2">About Us</h2></a>
             </div>
             <div className='coll-1'>
-                <a href="/"><h2 className="header-h2">Home</h2></a>
+                <a href="/profile"><h2 className="header-h2">Profile</h2></a>
+            </div>
+            <div className='coll-1'>
+                <a href="/home"><h2 className="header-h2">Home</h2></a>
             </div>
         </div>
     )

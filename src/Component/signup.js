@@ -16,27 +16,48 @@ function Signup() {
     },
     validationSchema: Yup.object({
       name: Yup.string().required('Full Name is required'),
-      phone: Yup.string().matches(/^\d{10}$/, 'Phone number is not valid').required('Phone number is required'),
-      email: Yup.string().email('Invalid email address').required('Email is required'),
-      password: Yup.string().min(6, 'Password should be at least 6 characters').required('Password is required'),
-      reg: Yup.string().matches(/^\d+$/, 'Registration number must be a number').required('Registration number is required')
+      phone: Yup.string()
+        .matches(/^\d{10}$/, 'Phone number must be exactly 10 digits')
+        .required('Phone number is required'),
+      email: Yup.string()
+        .email('Invalid email address')
+        .required('Email is required'),
+      password: Yup.string()
+        .min(6, 'Password should be at least 6 characters')
+        .required('Password is required'),
+      reg: Yup.string()
+        .matches(/^\d+$/, 'Registration number must be a number')
+        .required('Registration number is required')
     }),
     onSubmit: (values) => {
-      axios.post('http://localhost:5000/accountCreation', values) 
+      try {
+        console.log(values);
+        axios.post("http://localhost:5000/accountCreation", values, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
         .then(response => {
-          console.log('Account created successfully!', response);
-          window.location.href="login";
+          if(response.data === "Account created"){
+            alert("Account created Successfully..");
+            window.location.href="/";
+          }
+          if(response.data === "Account not created"){
+            alert("Error creating Account, Please try after some time..");
+          }
         })
         .catch(error => {
-          console.error('There was an error creating the account!', error);
+          console.error("Error Happened: " + error);
         });
+      } catch (err) {
+        console.error("Unexpected error: " + err);
+      }
     }
   });
 
   return (
     <div style={{ backgroundColor: "black" }}>
       <Header />
-
       <div className="signin-body">
         <div className="form-container">
           <h2 className="form-heading">Create Account</h2>
@@ -99,7 +120,7 @@ function Signup() {
 
             <label htmlFor="reg" className="label">Registration Number</label>
             <input
-              type="number"
+              type="text"
               id="reg"
               name="reg"
               className="input"
@@ -119,14 +140,13 @@ function Signup() {
           <div className="links">
             <p className="text-center">
               Already have an account?{' '}
-              <a href="/login" className="link">
+              <a href="/" className="link">
                 Login here
               </a>
             </p>
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

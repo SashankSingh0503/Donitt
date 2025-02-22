@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import Header from "../Component/header";
 import Footer from "../Component/footer";
-import axios from "axios"; 
+// import axios from "axios"; 
 import "./medicineOrder.css";
+import { useNavigate } from "react-router-dom";
+
 
 function GroceryOrder() {
-  const [cart, setCart] = useState([]);
+   const navigate = useNavigate();  
+    const [cart, setCart] = useState([]);
+    const [showAlert, setShowAlert] = useState(false); 
+    const [alertMessage, setAlertMessage] = useState(""); 
+  
 
   const products = [
     { name: 'Toor dal', price: 150, imgSrc: './images/dal-1.jpg', description: 'Non polished organic toor dal' },
@@ -31,6 +37,12 @@ function GroceryOrder() {
     } else {
       setCart([...cart, { ...item, quantity: 1 }]);
     }
+    setAlertMessage(`${item.name} added to cart!`);
+    setShowAlert(true);
+
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
   };
 
   const decreaseQuantity = (name) => {
@@ -50,9 +62,7 @@ function GroceryOrder() {
 
   const handleOrder = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/groceryOrder", { cart });
-      if (response.data === "Order placed")
-            alert("Order Placed Successfully!");  
+      navigate("/order-summary", { state: { cart , type:"Grocery-Order"} }); 
       setCart([]);
     } catch (error) {
       alert("Failed to place order.");
@@ -62,6 +72,11 @@ function GroceryOrder() {
   return (
     <div>
       <Header />
+      {showAlert && (
+        <div className="alert">
+          <span>{alertMessage}</span>
+        </div>
+      )}
       <div className="main-tiles">
         {products.map((product, index) => (
           <div className="tile" key={index}>

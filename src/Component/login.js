@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 import axios from 'axios';  
 import "./login.css";
 
-// Validation Schema using Yup
 const validationSchema = Yup.object({
   username: Yup.string()
     .required('Name is required')
@@ -36,9 +35,9 @@ function Login() {
               .then(response => {
                 if(response.data === "Matched"){
                   document.getElementById("Invalid").innerText = "";
-                  window.location.href="/";
+                  window.location.href="home";
                 }
-                else{
+                if(response.data === "Not matched"){
                   document.getElementById("Invalid").innerText = "Invalid crentials..";
                 }
               })
