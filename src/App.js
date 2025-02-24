@@ -65,53 +65,7 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile/>
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//about",
-    element: <About />,
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//home",
-    element: <Home />,
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//signup",
-    element: <Signup />,
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//foodOrder",
-    element: <FoodOrder />,
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//medicineOrder",
-    element: <MedicineOrder />,
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//groceryOrder",
-    element: <GroceryOrder />,
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//parcelOrder",
-    element: <ParcelOrder />,
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//otp",
-    element: <OTPEntry />,
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//order-summary",
-    element: <OrderSummary />,
-  },
-  
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//order-placed",
-    element: <Placed/>
-  },
-  {
-    path: "https://improved-broccoli-d8gq.onrender.com//profile",
-    element: <Profile/>
   }
-  
 ]);
 
 function App() {
